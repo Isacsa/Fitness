@@ -1,0 +1,57 @@
+﻿<Window x:Class="LAB2ANO2SEMESTRE.Views.ListaCalcado"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LAB2ANO2SEMESTRE.Views"
+        xmlns:viewModels="clr-namespace:LAB2ANO2SEMESTRE.ModelViews"
+        mc:Ignorable="d"
+        Title="ListaCalcado" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Menu -->
+            <StackPanel Grid.Column="0" Background="LightGray">
+                <Button Content="Adicionar Atividade Fisica "/>
+                <Button Content="Alterar Caracteristicas Fisicas"/>
+                <Button Content="Calçado"/>
+                <Button Content="Perfil"/>
+                <Button Content="Objetivos Pessoais"/>
+            </StackPanel>
+
+            <!-- Conteúdo principal -->
+            <Grid Grid.Column="1" RenderTransformOrigin="0.426,0.608">
+                <ListView x:Name="CalcadosListView" Margin="10" ItemsSource="{Binding Calcados}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Marca" DisplayMemberBinding="{Binding Brand}" Width="120"/>
+                            <GridViewColumn Header="Modelo" DisplayMemberBinding="{Binding Model}" Width="120"/>
+                            <GridViewColumn Header="Cor" DisplayMemberBinding="{Binding Color}" Width="120"/>
+                            <GridViewColumn Header="Kilometros Feitos" DisplayMemberBinding="{Binding NrKilometros}" Width="120"/>
+                            <GridViewColumn Header="Data da Compra" DisplayMemberBinding="{Binding PurchaseDate}" Width="120"/>
+                            <GridViewColumn Header="Ativo" DisplayMemberBinding="{Binding IsActive}" Width="120"/>
+                            <GridViewColumn Header="Editar" Width="120">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Editar" Click="EditButton_Click"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Apagar" Width="120">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Apagar" Click="DeleteButton_Click"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

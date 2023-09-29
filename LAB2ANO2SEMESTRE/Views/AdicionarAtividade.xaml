@@ -1,0 +1,52 @@
+﻿<Window x:Class="LAB2ANO2SEMESTRE.Views.AdicionarAtividade"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LAB2ANO2SEMESTRE.Views"
+        mc:Ignorable="d"
+        Title="AdicionarAtividade" Height="450" Width="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Menu -->
+        <StackPanel Grid.Column="0" Background="LightGray">
+            <Button Content="Adicionar Atividade Fisica "/>
+            <Button Content="Alterar Caracteristicas Fisicas"/>
+            <Button Content="Calçado"/>
+            <Button Content="Perfil"/>
+            <Button Content="Objetivos Pessoais"/>
+        </StackPanel>
+
+        <!-- Conteúdo principal -->
+        <Grid Grid.Column="1" RenderTransformOrigin="0.426,0.608">
+            <DatePicker x:Name="DataAtividade" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="83,124,0,0" Width="107"/>
+            <Label  Content="Fitness" HorizontalAlignment="Left" Margin="272,18,0,0" VerticalAlignment="Top" Height="31" Width="50"/>
+            <Label Content="Adicionar Atividade" HorizontalAlignment="Left" Margin="240,54,0,0" VerticalAlignment="Top"/>
+            <Label Content="Data da Atividade:" HorizontalAlignment="Left" Margin="83,93,0,0" VerticalAlignment="Top"/>
+            <Label Content="Tipo de Atividade" HorizontalAlignment="Left" Margin="83,164,0,0" VerticalAlignment="Top" Width="107"/>
+            <ComboBox x:Name="cbTiposAtividade" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="83,195,0,0" VerticalAlignment="Top" Width="107"/>
+            <Label Content="Descrição" HorizontalAlignment="Left" Margin="99,234,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="Descricao" HorizontalAlignment="Left" Margin="83,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107" Background="#FFE0E0E0" Height="70"/>
+            <Label Content="Calçado" HorizontalAlignment="Left" Margin="83,354,0,0" VerticalAlignment="Top" Width="107"/>
+            <ComboBox x:Name="ShoeComboBox" DisplayMemberPath="Model" HorizontalAlignment="Left" Margin="83,385,0,0" VerticalAlignment="Top" Width="107"/>
+            <Label Content="Hora de Inicio:" HorizontalAlignment="Center" Margin="0,146,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="HoraInicio" HorizontalAlignment="Left" Margin="371,150,0,0" TextWrapping="Wrap" Text="H" VerticalAlignment="Top" Background="#FFE0E0E0" Width="59"/>
+            <TextBox x:Name="MinutoInicio" HorizontalAlignment="Left" Margin="453,150,0,0" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Background="#FFE0E0E0" Width="59"/>
+            <Label Content=":" HorizontalAlignment="Left" Margin="435,146,0,0" VerticalAlignment="Top" Width="19"  Height="30"/>
+            <Label Content="Hora de Termino:" HorizontalAlignment="Center" Margin="0,206,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="HoraFim" HorizontalAlignment="Left" Margin="371,214,0,0" TextWrapping="Wrap" Text="H" VerticalAlignment="Top" Background="#FFE0E0E0" Width="59"/>
+            <TextBox x:Name="MinutoFim" HorizontalAlignment="Left" Margin="453,217,0,0" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Background="#FFE0E0E0" Width="59"/>
+            <Label Content=":" HorizontalAlignment="Left" Margin="435,208,0,0" VerticalAlignment="Top" Width="19"  Height="30" RenderTransformOrigin="0.478,1.735"/>
+            <Label Content="Distância:" HorizontalAlignment="Center" Margin="0,300,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="Distancia" HorizontalAlignment="Left" Margin="362,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFE0E0E0" Width="120"/>
+            <Label Content="km" HorizontalAlignment="Left" Margin="487,300,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.182,0.086"/>
+            <Button Content="Adicionar Atividade" HorizontalAlignment="Left" Margin="362,367,0,0" VerticalAlignment="Top" Height="22" Width="130" Click="AddActivity_Click" />
+            <Button x:Name="gpx" Content="Adicionar arquivo gpx" HorizontalAlignment="Left" Margin="380,99,0,0" VerticalAlignment="Top" Click="Button_Click" RenderTransformOrigin="0.514,0.607"/>
+        </Grid>
+    </Grid>
+</Window>

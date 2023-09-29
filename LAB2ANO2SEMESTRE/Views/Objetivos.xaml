@@ -1,0 +1,95 @@
+﻿<Window x:Class="LAB2ANO2SEMESTRE.Views.Objetivos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Alterar Objetivo" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Menu -->
+            <StackPanel Grid.Column="0" Background="LightGray">
+                <Button Content="Adicionar Atividade Fisica"/>
+                <Button Content="Alterar Caracteristicas Fisicas"/>
+                <Button Content="Calçado"/>
+                <Button Content="Perfil"/>
+                <Button Content="Objetivos Pessoais"/>
+            </StackPanel>
+
+            <!-- Conteúdo principal -->
+            <Grid Grid.Column="1" RenderTransformOrigin="0.426,0.608">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Coluna da esquerda -->
+                <Grid Grid.Column="0" Grid.Row="1">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Label Content="Tipo de Objetivo" />
+                        <ComboBox x:Name="GoalTypeComboBox" 
+                                  DisplayMemberPath="Name"
+                                  ItemsSource="{Binding TiposObjetivo}" 
+                                  SelectedIndex="0" 
+                                  Height="25"/>
+                        <Label Content="Meta" />
+                        <TextBox x:Name="TargetValueTextBox" 
+                                 Height="25" 
+                                 Margin="0,10,0,0" 
+                                 ToolTip="Insira o valor alvo"/>
+                        <Label Content="Data Limite" />
+                        <DatePicker x:Name="DeadlineDatePicker" 
+                                    Height="25" 
+                                    Margin="0,10,0,0" 
+                                    ToolTip="Selecione a data limite (opcional)"/>
+                        <Button x:Name="AddGoalButton"
+                                Content="Adicionar Objetivo"
+                                Margin="0,10,0,0"
+                                Click="AddGoal_Click"/>
+                        
+                    </StackPanel>
+                </Grid>
+
+                <!-- Coluna do meio -->
+                <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Label Content="Data de Alcance" />
+                    <DatePicker x:Name="AchievementDatePicker" 
+                                Margin="10,0"
+                                ToolTip="Selecione a data de alcance (quando o objetivo foi atingido)"/>
+                    <Button x:Name="UpdateGoalButton"
+        Content="Atualizar Objetivo"
+        Margin="0,10,0,0"
+        Grid.Column="0"
+        Grid.Row="2"
+        Click="UpdateGoal_Click"/>
+
+                </StackPanel>
+
+                <!-- Coluna da direita -->
+                <ScrollViewer Grid.Column="2" Grid.RowSpan="3" VerticalScrollBarVisibility="Auto">
+                    <ListView x:Name="GoalsListView"
+                              Margin="10,0"
+                              ItemsSource="{Binding Objetivos}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Tipo" DisplayMemberBinding="{Binding GoalType.Name}" Width="150"/>
+                                <GridViewColumn Header="Meta" DisplayMemberBinding="{Binding TargetValue}" Width="150"/>
+                                <GridViewColumn Header="Data Limite" DisplayMemberBinding="{Binding Deadline}" Width="150"/>
+                                <GridViewColumn Header="Data de Alcance" DisplayMemberBinding="{Binding AchievementDate}" Width="150"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

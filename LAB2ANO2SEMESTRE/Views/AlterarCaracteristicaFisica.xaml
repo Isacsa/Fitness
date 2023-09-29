@@ -1,0 +1,81 @@
+﻿<Window x:Class="LAB2ANO2SEMESTRE.Views.AlterarCaracteristicaFisica"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Alterar Caracterisctica Fisica" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Menu -->
+            <StackPanel Grid.Column="0" Background="LightGray">
+                <Button Content="Adicionar Atividade Fisica"/>
+                <Button Content="Alterar Caracteristicas Fisicas"/>
+                <Button Content="Calçado"/>
+                <Button Content="Perfil"/>
+                <Button Content="Objetivos Pessoais"/>
+            </StackPanel>
+
+            <!-- Conteúdo principal -->
+            <Grid Grid.Column="1" RenderTransformOrigin="0.426,0.608">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Coluna da esquerda -->
+                <Grid Grid.Column="0" Grid.Row="1">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <ComboBox x:Name="ChangeTypeComboBox" 
+                      DisplayMemberPath="Name"
+                      ItemsSource="{Binding TiposRegistoFisico}" 
+                      SelectedIndex="0" 
+                      Height="25"/>
+                        <TextBox x:Name="NewValueTextBox" 
+                     Height="25" 
+                     Margin="0,10,0,0" 
+                     ToolTip="Insira o novo valor"/>
+                        <TextBlock x:Name="UnitTextBlock" 
+                       Margin="0,10,0,0"/>
+                        <Button x:Name="AddPhysicalChangeButton"
+                    Content="Adicionar Alteração Física"
+                    Margin="0,10,0,0"
+                    Click="AddPhysicalChange_Click"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Coluna do meio -->
+                <DatePicker x:Name="MeasurementDatePicker" 
+                Grid.Column="1" 
+                Grid.Row="1"
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Center"
+                Margin="10,0"/>
+
+                <!-- Coluna da direita -->
+                <ListView x:Name="ChangeHistoryListView" 
+                Grid.Column="2" 
+                Grid.RowSpan="3" 
+                Margin="10,0"
+                ItemsSource="{Binding AlteracoesFisicas}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Data" DisplayMemberBinding="{Binding Date}" Width="120"/>
+                            <GridViewColumn Header="Valor" DisplayMemberBinding="{Binding Value}" Width="120"/>
+                            <GridViewColumn Header="Unidade" DisplayMemberBinding="{Binding Characteristic.Unidade}" Width="120"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

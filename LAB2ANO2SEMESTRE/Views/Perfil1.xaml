@@ -1,0 +1,42 @@
+﻿<Window x:Class="LAB2ANO2SEMESTRE.Views.Perfil1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LAB2ANO2SEMESTRE.Views"
+        mc:Ignorable="d"
+        Title="Perfil1" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Botões da coluna esquerda -->
+        <StackPanel Grid.Column="0" Background="LightGray">
+            <Button Content="Adicionar Atividade Fisica" />
+            <Button Content="Alterar Caracteristicas Fisicas"/>
+            <Button Content="Calçado"/>
+            <Button Content="Perfil"/>
+            <Button Content="Objetivos Pessoais"/>
+        </StackPanel>
+
+        <!-- Campos do perfil na coluna direita -->
+        <Label Grid.Column="1" Content="Nome:" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" />
+        <TextBox Grid.Column="1" x:Name="NomeTextBox" Text="{Binding Perfil.Nome, Mode=TwoWay}" HorizontalAlignment="Left" Height="29" Margin="20,41,0,0" VerticalAlignment="Top" Width="200" />
+
+        <Label Grid.Column="1" Content="Data de nascimento:" HorizontalAlignment="Left" Height="31" Margin="20,70,0,0" VerticalAlignment="Top" />
+        <DatePicker Grid.Column="1" x:Name="DataNascimentoDatePicker" SelectedDate="{Binding Perfil.DataNascimento, Mode=TwoWay}" HorizontalAlignment="Left" Height="30" Margin="20,100,0,0" VerticalAlignment="Top" Width="200" />
+
+        <Label Grid.Column="1" Content="Foto de Perfil:" HorizontalAlignment="Left" Height="31" Margin="20,140,0,0" VerticalAlignment="Top" />
+        <Image x:Name="FotoPerfilImage" Grid.Column="1" Source="{Binding Perfil.FotografiaPath}" HorizontalAlignment="Left" Height="100" Margin="20,170,0,0" VerticalAlignment="Top" Width="100" />
+
+        <Button x:Name="AtualizarFotoButton" Grid.Column="1" Content="Atualizar Foto" HorizontalAlignment="Left" Margin="20,280,0,0" VerticalAlignment="Top" Height="32" Width="100" Click="AtualizarFotoButton_Click" />
+
+        <Label Grid.Column="1" Content="Sexo:" HorizontalAlignment="Left" Height="31" Margin="20,320,0,0" VerticalAlignment="Top" />
+
+        <Button Grid.Column="1" Content="Salvar alterações" HorizontalAlignment="Left" Height="40" Margin="346,296,0,0" VerticalAlignment="Top" Width="200" Click="Button_Click" RenderTransformOrigin="1.732,-4.107"
+                />
+        <ComboBox x:Name="SexoComboBox" ItemsSource="{Binding Sexos}" SelectedItem="{Binding Perfil.Sexo}" Grid.Column="1" HorizontalAlignment="Left" Margin="39,373,0,0" VerticalAlignment="Top" Width="120"/>
+    </Grid>
+</Window>

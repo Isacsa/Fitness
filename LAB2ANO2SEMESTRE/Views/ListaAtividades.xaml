@@ -1,0 +1,53 @@
+﻿<Window x:Class="LAB2ANO2SEMESTRE.Views.ListaAtividades"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Lista de Atividades" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Menu -->
+            <StackPanel Grid.Column="0" Background="LightGray">
+                <Button Content="Adicionar Atividade Fisica "/>
+                <Button Content="Alterar Caracteristicas Fisicas"/>
+                <Button Content="Calçado"/>
+                <Button Content="Perfil"/>
+                <Button Content="Objetivos Pessoais"/>
+            </StackPanel>
+
+            <!-- Conteúdo principal -->
+            <Grid Grid.Column="1" RenderTransformOrigin="0.426,0.608">
+                <ListView x:Name="AtividadesListView" Margin="10">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Descrição" DisplayMemberBinding="{Binding Description}" Width="120"/>
+                            <GridViewColumn Header="Distância" DisplayMemberBinding="{Binding Distance}" Width="120"/>
+                            <GridViewColumn Header="Hora de Início" DisplayMemberBinding="{Binding StartTime}" Width="120"/>
+                            <GridViewColumn Header="Hora de Fim" DisplayMemberBinding="{Binding EndTime}" Width="120"/>
+                            <GridViewColumn Header="Ritmo" DisplayMemberBinding="{Binding Rhythm}" Width="120"/>
+                            <GridViewColumn Header="Tipo de Atividade" DisplayMemberBinding="{Binding TipoAtividade.Name}" Width="120"/>
+                            <GridViewColumn Header="Calçado" DisplayMemberBinding="{Binding Calcado.Model}" Width="120"/>
+                            <GridViewColumn Header="Editar" Width="120">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Editar" Click="EditButton_Click"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Apagar" Width="120">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Apagar" Click="DeleteButton_Click"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
